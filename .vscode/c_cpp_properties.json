@@ -1,0 +1,46 @@
+{
+  "version": 4,
+  "configurations": [
+    {
+      "name": "RK3568-AArch64",
+      "compilerPath": "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-g++",
+      "intelliSenseMode": "linux-gcc-arm64",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "compilerArgs": [
+        "--sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot"
+      ],
+      "defines": [
+        "_GNU_SOURCE",
+        "__linux__",
+        "__aarch64__"
+      ],
+      "includePath": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/**",
+        "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/include",
+        "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockchip",
+        "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rga",
+        "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/opt/ffmpeg61/include",
+        "/home/alientek/rk3568_linux5.10_sdk/external/mpp/inc",
+        "/home/alientek/rk3568_linux5.10_sdk/external/mpp/osal/inc",
+        "/home/alientek/rk3568_linux5.10_sdk/external/mpp/mpp/inc",
+        "/home/alientek/rk3568_linux5.10_sdk/external/mpp/utils"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}",
+          "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/include",
+          "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rockchip",
+          "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/include/rga",
+          "/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/opt/ffmpeg61/include",
+          "/home/alientek/rk3568_linux5.10_sdk/external/mpp/inc",
+          "/home/alientek/rk3568_linux5.10_sdk/external/mpp/osal/inc",
+          "/home/alientek/rk3568_linux5.10_sdk/external/mpp/mpp/inc",
+          "/home/alientek/rk3568_linux5.10_sdk/external/mpp/utils"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ]
+}
