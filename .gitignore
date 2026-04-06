@@ -1,0 +1,231 @@
+# ====================
+# 编译产物
+# ====================
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# ====================
+# 库文件
+# ====================
+*.lib
+*.a
+*.dll
+*.so
+*.so.*
+*.dylib
+*.dylib.*
+*.exp
+*.pdb
+*.ilk
+*.idb
+
+# ====================
+# 构建目录
+# ====================
+/bin/
+/build/
+/build-*/
+/dist/
+/out/
+/cmake-build-*/
+/Debug/
+/Release/
+/x64/
+/x86/
+/arm64/
+/obj/
+
+# ====================
+# IDE 配置
+# ====================
+## Visual Studio
+.vs/
+*.vcxproj.user
+*.vcxproj.filters
+*.sln.docstates
+*.suo
+*.user
+*.ncb
+*.opt
+*.plg
+
+## CLion / IntelliJ
+.idea/
+cmake-build-*/
+*.iml
+out/
+
+## Qt Creator
+*.user
+*.creator.user*
+*.creator.user.preferences
+*.creator.user.cmake
+*.config
+*.includes
+*.files
+Makefile-*
+
+## Eclipse
+.cproject
+.project
+.settings/
+.classpath
+.remote-package.json
+
+## CodeBlocks
+*.cbp
+*.depend
+*.layout
+*.workspace
+
+## VSCode
+.vscode/
+.vscode-test/
+*.code-workspace
+
+## KDevelop
+.kdev4/
+
+## Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ====================
+# CMake
+# ====================
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+cmake-build-*/
+CMakeUserPresets.json
+
+# ====================
+# 代码分析工具
+# ====================
+## Clang-Tidy
+.clang-tidy-cache/
+
+## CppCheck
+cppcheck-*
+
+## Valgrind
+vgcore.*
+
+## Gcov
+*.gcda
+*.gcno
+*.gcov
+coverage/
+htmlcov/
+*.cov
+
+# ====================
+# 包管理
+# ====================
+## Conan
+conaninfo.txt
+conanbuildinfo.*
+conanbuild.conf
+conanenv.*
+
+## vcpkg
+vcpkg_installed/
+vcpkg-manifest-install/
+vcpkg/
+
+## Hunter
+_CPack_Packages/
+_Hunter/
+
+## CPM.cmake
+.cpmcache/
+
+# ====================
+# 文档相关
+# ====================
+doxygen/
+docs/html/
+docs/latex/
+*.docset
+
+# ====================
+# 备份和临时文件
+# ====================
+*~
+*.swp
+*.swo
+*.bak
+*.backup
+*.tmp
+*.temp
+*.orig
+*.rej
+*.patch
+
+# ====================
+# 操作系统
+# ====================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+ehthumbs.db
+*.dstore
+
+# ====================
+# 日志和性能
+# ====================
+*.log
+*.prof
+*.heap
+*.trace
+
+# ====================
+# 打包文件
+# ====================
+*.zip
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+*.deb
+*.rpm
+*.dmg
+
+# ====================
+# 调试和测试
+# ====================
+test/tmp/
+test/temp/
+test/output/
+*.test
+*.tests
+
+# ====================
+# 环境配置
+# ====================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ====================
+# 本地配置（不提交）
+# ====================
+local/
+local.*
+*.local
+config.local.h
