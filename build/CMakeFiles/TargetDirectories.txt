@@ -1,3 +1,0 @@
-/home/alientek/github/rkmpp/build/CMakeFiles/rebuild_cache.dir
-/home/alientek/github/rkmpp/build/CMakeFiles/edit_cache.dir
-/home/alientek/github/rkmpp/build/CMakeFiles/rk_media_demo.dir
