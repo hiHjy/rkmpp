@@ -1,0 +1,27 @@
+BasedOnStyle: LLVM
+
+# 缩进用 Tab
+UseTab: Always
+IndentWidth: 4
+TabWidth: 4
+
+# 大括号风格（关键）
+BreakBeforeBraces: Custom
+
+BraceWrapping:
+  AfterFunction: true        # 函数的大括号换行 ✅
+  AfterControlStatement: false  # if / for / while 不换行 ✅
+  AfterClass: true
+  AfterStruct: true
+  AfterEnum: true
+  AfterNamespace: true
+
+# 控制语句风格（保证 if (...) {）
+SpaceBeforeParens: ControlStatements
+
+# 大括号前加空格
+SpaceBeforeCpp11BracedList: true
+
+# 其他优化
+AllowShortFunctionsOnASingleLine: None
+IndentCaseLabels: true

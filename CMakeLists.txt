@@ -73,6 +73,7 @@ pkg_check_modules(DRM REQUIRED IMPORTED_TARGET libdrm)
 set(APP_SOURCES
     "${CMAKE_SOURCE_DIR}/main.c"
     "${CMAKE_SOURCE_DIR}/rkmpp_dec.c"
+    "${CMAKE_SOURCE_DIR}/ffmpeg_pull_rtsp.c"
 )
 
 add_executable(rk_media_demo ${APP_SOURCES})
