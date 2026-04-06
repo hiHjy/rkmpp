@@ -78,7 +78,12 @@ int init_pull_rtsp_stream(const char *rtsp_url)
 		fprintf(stderr, "no video stream\n");
 		goto err;
 	}
-
+    ctx.pkt = av_packet_alloc();
+    if (ctx.pkt == NULL) {
+        fprintf(stderr, "av_packet_alloc failed\n");
+        goto err;
+    }
+    ctx.fmt_ctx = fmt_ctx;
     video_acp = fmt_ctx->streams[ctx.video_index]->codecpar;  //拿到视频流的参数信息
     codec_name = avcodec_get_name(video_acp->codec_id);          //拿视频流的编码格式
     printf("video stream index:%d  codec_name:%s\n", ctx.video_index, codec_name);
