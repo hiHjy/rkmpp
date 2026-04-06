@@ -72,6 +72,7 @@ pkg_check_modules(DRM REQUIRED IMPORTED_TARGET libdrm)
 # 你可以把这个默认源码换成你自己的，不需要改 CMake 主体。
 set(APP_SOURCES
     "${CMAKE_SOURCE_DIR}/main.c"
+    "${CMAKE_SOURCE_DIR}/media_utils.c"
     "${CMAKE_SOURCE_DIR}/rkmpp_dec.c"
     "${CMAKE_SOURCE_DIR}/ffmpeg_pull_rtsp.c"
 )
