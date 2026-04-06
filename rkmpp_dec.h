@@ -9,7 +9,7 @@
 #include "mpp_mem.h"
 #include "mpp_time.h"
 #include "rk_mpi.h"
-
+#define BUF_SIZE (1024 * 1024)
 typedef struct RkMppDecoder_t {
     MppCtx ctx;
     MppApi *mpi;
@@ -22,6 +22,7 @@ typedef struct RkMppDecoder_t {
     int timeout_count;
     int eos_wait_count;
     int eos_sent;
+    unsigned char internal_buf[BUF_SIZE];
 } RkMppDecoder;
 
 const char *get_mpp_frame_fmt_name(RK_U32 fmt);

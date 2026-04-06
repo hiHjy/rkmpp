@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "ffmpeg_pull_rtsp.h"
 
 /*
  * 这是一个“尽量容易看懂”的单线程 MPP 解码示例。
@@ -289,7 +290,7 @@ int rk_mpp_decoder_poll_frames(RkMppDecoder *dec)
 
         dec->frame = NULL;
         ret = dec->mpi->decode_get_frame(dec->ctx, &dec->frame);
-
+        printf("调用 decode_get_frame ret=%d\n", ret);
         if (ret == MPP_ERR_TIMEOUT) {
             dec->timeout_count++;
             if (dec->eos_sent)
@@ -321,9 +322,10 @@ int rk_mpp_decoder_poll_frames(RkMppDecoder *dec)
             mpp_frame_deinit(&dec->frame);
             return 1;
         }
-
+        
         mpp_frame_deinit(&dec->frame);
     }
+
 }
 
 /*
@@ -339,17 +341,20 @@ int rk_mpp_decoder_send_data(RkMppDecoder *dec,
                              size_t len,
                              int eos)
 {
+    
+    memset(dec->internal_buf, 0, sizeof(dec->internal_buf));
+    memcpy(dec->internal_buf, data, len);
     int pkt_done = dec->eos_sent;
 
-    mpp_packet_set_data(dec->packet, data);
-    mpp_packet_set_pos(dec->packet, data);
+    mpp_packet_set_data(dec->packet, dec->internal_buf);
+    mpp_packet_set_pos(dec->packet, dec->internal_buf);
     mpp_packet_set_size(dec->packet, len);
     mpp_packet_set_length(dec->packet, len);
     mpp_packet_clr_eos(dec->packet);
 
     if (eos)
         mpp_packet_set_eos(dec->packet);
-
+    printf("pkt_done=%d\n", pkt_done);
     while (!pkt_done) {
         MPP_RET ret = dec->mpi->decode_put_packet(dec->ctx, dec->packet);
         if (ret == MPP_OK) {
@@ -358,6 +363,20 @@ int rk_mpp_decoder_send_data(RkMppDecoder *dec,
                 dec->eos_sent = 1;
             printf("packet中的数据送往解码器成功 len=%zu eos=%d\n", len, eos);
         } else {
+            if (ret == MPP_ERR_BUFFER_FULL) { // MPP_ERR_BUFFER_FULL
+                
+                printf("解码器内部缓冲满了，无法接受新数据了\n");
+                
+                ret = rk_mpp_decoder_poll_frames(dec);
+                if (ret < 0) {
+                    printf("解码器处理已解码帧时出错 ret=%d\n", ret);
+                    return -1;
+                }
+
+            } else {
+                printf("packet送往解码器失败 ret=%d\n", ret);
+            }
+            
             msleep(1);
         }
     }
