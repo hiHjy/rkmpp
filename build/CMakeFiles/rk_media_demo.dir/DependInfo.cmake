@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c" "/home/alientek/rkmpp/build/CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o"
+  "/home/alientek/github/rkmpp/main.c" "/home/alientek/github/rkmpp/build/CMakeFiles/rk_media_demo.dir/main.c.o"
+  "/home/alientek/github/rkmpp/rkmpp_dec.c" "/home/alientek/github/rkmpp/build/CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

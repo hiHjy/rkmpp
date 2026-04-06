@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alientek/rkmpp
+CMAKE_SOURCE_DIR = /home/alientek/github/rkmpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alientek/rkmpp/build
+CMAKE_BINARY_DIR = /home/alientek/github/rkmpp/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rk_media_demo.dir/depend.make
@@ -57,27 +57,42 @@ include CMakeFiles/rk_media_demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/rk_media_demo.dir/flags.make
 
-CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o: CMakeFiles/rk_media_demo.dir/flags.make
-CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o: /home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alientek/rkmpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o"
-	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o   -c /home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c
+CMakeFiles/rk_media_demo.dir/main.c.o: CMakeFiles/rk_media_demo.dir/flags.make
+CMakeFiles/rk_media_demo.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alientek/github/rkmpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/rk_media_demo.dir/main.c.o"
+	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rk_media_demo.dir/main.c.o   -c /home/alientek/github/rkmpp/main.c
 
-CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i"
-	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c > CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i
+CMakeFiles/rk_media_demo.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rk_media_demo.dir/main.c.i"
+	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alientek/github/rkmpp/main.c > CMakeFiles/rk_media_demo.dir/main.c.i
 
-CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s"
-	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c -o CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s
+CMakeFiles/rk_media_demo.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rk_media_demo.dir/main.c.s"
+	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alientek/github/rkmpp/main.c -o CMakeFiles/rk_media_demo.dir/main.c.s
+
+CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o: CMakeFiles/rk_media_demo.dir/flags.make
+CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o: ../rkmpp_dec.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alientek/github/rkmpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o"
+	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o   -c /home/alientek/github/rkmpp/rkmpp_dec.c
+
+CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.i"
+	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/alientek/github/rkmpp/rkmpp_dec.c > CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.i
+
+CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.s"
+	/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/bin/aarch64-buildroot-linux-gnu-gcc --sysroot=/home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/alientek/github/rkmpp/rkmpp_dec.c -o CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.s
 
 # Object files for target rk_media_demo
 rk_media_demo_OBJECTS = \
-"CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o"
+"CMakeFiles/rk_media_demo.dir/main.c.o" \
+"CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o"
 
 # External object files for target rk_media_demo
 rk_media_demo_EXTERNAL_OBJECTS =
 
-rk_media_demo: CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o
+rk_media_demo: CMakeFiles/rk_media_demo.dir/main.c.o
+rk_media_demo: CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o
 rk_media_demo: CMakeFiles/rk_media_demo.dir/build.make
 rk_media_demo: /home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/opt/ffmpeg61/lib/libavformat.so
 rk_media_demo: /home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/opt/ffmpeg61/lib/libavcodec.so
@@ -88,7 +103,7 @@ rk_media_demo: /home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk
 rk_media_demo: /home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/librga.so
 rk_media_demo: /home/alientek/rk3568_linux5.10_sdk/buildroot/output/rockchip_atk_dlrk3568/host/aarch64-buildroot-linux-gnu/sysroot/usr/lib/libdrm.so
 rk_media_demo: CMakeFiles/rk_media_demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alientek/rkmpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable rk_media_demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alientek/github/rkmpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable rk_media_demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rk_media_demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -101,6 +116,6 @@ CMakeFiles/rk_media_demo.dir/clean:
 .PHONY : CMakeFiles/rk_media_demo.dir/clean
 
 CMakeFiles/rk_media_demo.dir/depend:
-	cd /home/alientek/rkmpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alientek/rkmpp /home/alientek/rkmpp /home/alientek/rkmpp/build /home/alientek/rkmpp/build /home/alientek/rkmpp/build/CMakeFiles/rk_media_demo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alientek/github/rkmpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alientek/github/rkmpp /home/alientek/github/rkmpp /home/alientek/github/rkmpp/build /home/alientek/github/rkmpp/build /home/alientek/github/rkmpp/build/CMakeFiles/rk_media_demo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rk_media_demo.dir/depend
 

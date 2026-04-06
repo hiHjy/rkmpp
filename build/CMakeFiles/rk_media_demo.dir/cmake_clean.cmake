@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o"
+  "CMakeFiles/rk_media_demo.dir/main.c.o"
+  "CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o"
   "rk_media_demo"
   "rk_media_demo.pdb"
 )

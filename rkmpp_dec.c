@@ -1,7 +1,4 @@
-#include "mpp_common.h"
-#include "mpp_mem.h"
-#include "mpp_time.h"
-#include "rk_mpi.h"
+#include "rkmpp_dec.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,7 +29,7 @@
 #define BUF_SIZE (1024 * 1024)
 #define EOS_WAIT_TIMEOUT_COUNT 2000
 
-static const char *get_mpp_frame_fmt_name(RK_U32 fmt)
+const char *get_mpp_frame_fmt_name(RK_U32 fmt)
 {
     switch (fmt) {
     case MPP_FMT_YUV420SP:
@@ -105,7 +102,7 @@ static const char *get_mpp_frame_fmt_name(RK_U32 fmt)
 /*
  * 把解码出的 frame 按 NV12 文件格式写到磁盘。
  */
-static void dump_frame_nv12(MppFrame frame, FILE *fp_out)
+void dump_frame_nv12(MppFrame frame, FILE *fp_out)
 {
     MppBuffer buffer = NULL;
     MppFrameFormat fmt;
@@ -150,26 +147,13 @@ static void dump_frame_nv12(MppFrame frame, FILE *fp_out)
         fwrite(ptr_uv + y * h_stride, 1, width, fp_out);
 }
 
-typedef struct RkMppDecoder_t {
-    MppCtx ctx;
-    MppApi *mpi;
-    MppPacket packet;
-    MppDecCfg dec_cfg;
-    MppFrame frame;
-    MppBufferGroup frm_grp;
-    FILE *f_out;
-    int frame_count;
-    int timeout_count;
-    int eos_wait_count;
-    int eos_sent;
-} RkMppDecoder;
 
 /*
  * 初始化解码器核心对象。
  *
  * 这一层不关心输入来自哪里，只关心“我是不是一个准备好的解码器”。
  */
-static int rk_mpp_decoder_init(RkMppDecoder *dec, MppCodingType type, FILE *f_out)
+int rk_mpp_decoder_init(RkMppDecoder *dec, MppCodingType type, FILE *f_out)
 {
     memset(dec, 0, sizeof(*dec));
     dec->f_out = f_out;
@@ -219,7 +203,7 @@ static int rk_mpp_decoder_init(RkMppDecoder *dec, MppCodingType type, FILE *f_ou
  * 1. 解码器已经知道输出宽高/stride/buf_size
  * 2. 但它还在等应用层准备输出缓冲
  */
-static int rk_mpp_decoder_handle_info_change(RkMppDecoder *dec, MppFrame frame)
+int rk_mpp_decoder_handle_info_change(RkMppDecoder *dec, MppFrame frame)
 {
     MPP_RET ret;
     RK_U32 width = mpp_frame_get_width(frame);
@@ -272,7 +256,7 @@ static int rk_mpp_decoder_handle_info_change(RkMppDecoder *dec, MppFrame frame)
  * 如果是 info_change，就走缓冲准备流程；
  * 如果是正常图像帧，就统计并按 NV12 写文件。
  */
-static int rk_mpp_decoder_handle_frame(RkMppDecoder *dec, MppFrame frame)
+int rk_mpp_decoder_handle_frame(RkMppDecoder *dec, MppFrame frame)
 {
     RK_U32 fmt = mpp_frame_get_fmt(frame);
 
@@ -298,7 +282,7 @@ static int rk_mpp_decoder_handle_frame(RkMppDecoder *dec, MppFrame frame)
  * 1  : 收到真正的 eos frame，整个解码完成
  * <0 : 出错
  */
-static int rk_mpp_decoder_poll_frames(RkMppDecoder *dec)
+int rk_mpp_decoder_poll_frames(RkMppDecoder *dec)
 {
     while (1) {
         MPP_RET ret;
@@ -350,10 +334,10 @@ static int rk_mpp_decoder_poll_frames(RkMppDecoder *dec)
  *   data / len / eos
  * 基本都可以接到这里。
  */
-static int rk_mpp_decoder_send_data(RkMppDecoder *dec,
-                                    uint8_t *data,
-                                    size_t len,
-                                    int eos)
+int rk_mpp_decoder_send_data(RkMppDecoder *dec,
+                             uint8_t *data,
+                             size_t len,
+                             int eos)
 {
     int pkt_done = dec->eos_sent;
 
@@ -389,7 +373,7 @@ static int rk_mpp_decoder_send_data(RkMppDecoder *dec,
  * 2. 调用 rk_mpp_decoder_send_data()
  * 3. 文件结束后进入 drain
  */
-static int rk_mpp_decoder_run_file(RkMppDecoder *dec, FILE *f_in)
+int rk_mpp_decoder_run_file(RkMppDecoder *dec, FILE *f_in)
 {
     uint8_t buf[BUF_SIZE] = {0};
     size_t read_size = 0;
@@ -435,7 +419,7 @@ static int rk_mpp_decoder_run_file(RkMppDecoder *dec, FILE *f_in)
     }
 }
 
-static void rk_mpp_decoder_deinit(RkMppDecoder *dec)
+void rk_mpp_decoder_deinit(RkMppDecoder *dec)
 {
     if (dec->packet)
         mpp_packet_deinit(&dec->packet);
@@ -449,7 +433,7 @@ static void rk_mpp_decoder_deinit(RkMppDecoder *dec)
         mpp_buffer_group_put(dec->frm_grp);
 }
 
-static void decode(const char *input, const char *output, MppCodingType type)
+void decode(const char *input, const char *output, MppCodingType type)
 {
     RkMppDecoder dec;
     FILE *f_in = NULL;
@@ -486,19 +470,4 @@ static void decode(const char *input, const char *output, MppCodingType type)
         fclose(f_in);
     if (f_out)
         fclose(f_out);
-}
-
-int main(int argc, char const *argv[])
-{
-    if (argc < 4) {
-        printf("usage: %s input.h264 output.yuv type\n", argv[0]);
-        printf("type: 7=H264(AVC), 167=H265(HEVC), 8=MJPEG ...\n");
-        return -1;
-    }
-
-    printf("输入参数 码流文件:%s  目标文件:%s   码流压缩类型:%s\n",
-           argv[1], argv[2], argv[3]);
-
-    decode(argv[1], argv[2], (MppCodingType)atoi(argv[3]));
-    return 0;
 }

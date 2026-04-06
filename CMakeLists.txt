@@ -28,8 +28,13 @@ if(NOT SDK_ROOT)
 endif()
 
 # MPP 源码根目录。
-# 这里显式指向 SDK 里的 external/mpp，避免 CMAKE_SOURCE_DIR 变化时找不到源码。
+# 这些头文件里有一部分（如 mpp_common.h / mpp_mem.h / mpp_time.h）
+# 不会安装到 sysroot/usr/include/rockchip，下游工程需要额外指向
+# SDK 里的 external/mpp 源码树。
 set(MPP_ROOT "${SDK_ROOT}/external/mpp")
+if(NOT EXISTS "${MPP_ROOT}/inc/rk_mpi.h")
+    set(MPP_ROOT "$ENV{MPP_ROOT}")
+endif()
 
 set(SYSROOT_DIR "$ENV{SYSROOT}")
 if(NOT SYSROOT_DIR)
@@ -66,7 +71,8 @@ pkg_check_modules(DRM REQUIRED IMPORTED_TARGET libdrm)
 
 # 你可以把这个默认源码换成你自己的，不需要改 CMake 主体。
 set(APP_SOURCES
-    "${MPP_ROOT}/test/rkmpp_dec.c"
+    "${CMAKE_SOURCE_DIR}/main.c"
+    "${CMAKE_SOURCE_DIR}/rkmpp_dec.c"
 )
 
 add_executable(rk_media_demo ${APP_SOURCES})

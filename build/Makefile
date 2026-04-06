@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alientek/rkmpp
+CMAKE_SOURCE_DIR = /home/alientek/github/rkmpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alientek/rkmpp/build
+CMAKE_BINARY_DIR = /home/alientek/github/rkmpp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alientek/rkmpp/build/CMakeFiles /home/alientek/rkmpp/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alientek/github/rkmpp/build/CMakeFiles /home/alientek/github/rkmpp/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alientek/rkmpp/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alientek/github/rkmpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,59 @@ rk_media_demo/fast:
 	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/build
 .PHONY : rk_media_demo/fast
 
-home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.o: home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o
+main.o: main.c.o
 
-.PHONY : home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.o
+.PHONY : main.o
 
 # target to build an object file
-home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o:
-	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o
-.PHONY : home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.o
+main.c.o:
+	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/main.c.o
+.PHONY : main.c.o
 
-home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.i: home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i
+main.i: main.c.i
 
-.PHONY : home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.i
+.PHONY : main.i
 
 # target to preprocess a source file
-home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i:
-	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i
-.PHONY : home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.i
+main.c.i:
+	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/main.c.i
+.PHONY : main.c.i
 
-home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.s: home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s
+main.s: main.c.s
 
-.PHONY : home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s:
-	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s
-.PHONY : home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.c.s
+main.c.s:
+	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/main.c.s
+.PHONY : main.c.s
+
+rkmpp_dec.o: rkmpp_dec.c.o
+
+.PHONY : rkmpp_dec.o
+
+# target to build an object file
+rkmpp_dec.c.o:
+	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.o
+.PHONY : rkmpp_dec.c.o
+
+rkmpp_dec.i: rkmpp_dec.c.i
+
+.PHONY : rkmpp_dec.i
+
+# target to preprocess a source file
+rkmpp_dec.c.i:
+	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.i
+.PHONY : rkmpp_dec.c.i
+
+rkmpp_dec.s: rkmpp_dec.c.s
+
+.PHONY : rkmpp_dec.s
+
+# target to generate assembly for a file
+rkmpp_dec.c.s:
+	$(MAKE) -f CMakeFiles/rk_media_demo.dir/build.make CMakeFiles/rk_media_demo.dir/rkmpp_dec.c.s
+.PHONY : rkmpp_dec.c.s
 
 # Help Target
 help:
@@ -159,9 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... rk_media_demo"
-	@echo "... home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.o"
-	@echo "... home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.i"
-	@echo "... home/alientek/rk3568_linux5.10_sdk/external/mpp/test/rkmpp_dec.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... rkmpp_dec.o"
+	@echo "... rkmpp_dec.i"
+	@echo "... rkmpp_dec.s"
 .PHONY : help
 
 
